@@ -1,9 +1,13 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify,  render_template
 from gradio_client import Client
 from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)
+
+@app.route('/')
+def index():
+  return render_template('index.html')
 
 @app.route('/send-message', methods=['POST'])
 def send_message():
