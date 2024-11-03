@@ -92,18 +92,18 @@
         const messageDiv = document.createElement('div');
         messageDiv.className = `message ${sender}`;
         messagesDiv.appendChild(messageDiv);
-        messagesDiv.scrollTop = messagesDiv.scrollHeight;  // Rolagem automática para o fim
+        messagesDiv.scrollTop = messagesDiv.scrollHeight; 
 
-        // Inicia a digitação
+     
         typeMessage(messageDiv, text);
     }
 
-    function typeMessage(element, text, index = 0, speed = 30) { // Aumentei a velocidade
+    function typeMessage(element, text, index = 0, speed = 30) { 
         if (index < text.length) {
             element.innerHTML += text.charAt(index);
             index++;
             if (text.charAt(index - 1) === '\n') {
-                element.innerHTML += '<br>'; // Adiciona quebra de linha
+                element.innerHTML += '<br>'; 
             }
             setTimeout(() => typeMessage(element, text, index, speed), speed);
         }
