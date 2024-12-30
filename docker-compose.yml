@@ -1,0 +1,18 @@
+services:
+    gui-api:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        container_name: gui-api
+
+        env_file:
+            - .env
+        ports:
+            - "${PORT_FLASK}:${PORT_FLASK}"
+        networks:
+            - project_network
+        restart: always
+
+networks:
+  project_network:
+    external: true

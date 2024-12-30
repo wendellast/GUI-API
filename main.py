@@ -1,17 +1,18 @@
-from flask import Flask, request, jsonify,  render_template
+from flask import Flask, request, jsonify, render_template
 from gradio_client import Client
 from flask_cors import CORS
+from dotenv import load_dotenv
+import os
 
+load_dotenv()
+
+port = os.getenv('PORT_FLASK')
 
 app = Flask(__name__)
 
 CORS(app)
 
-@app.route('/')
-def index():
-  return render_template('index.html')
-
-@app.route('/send-message', methods=['POST'])
+@app.route('/send-message-gui', methods=['POST'])
 def send_message():
     data = request.get_json()
     message = data.get('message')
@@ -28,4 +29,4 @@ def send_message():
     return jsonify({"response": result})
 
 if __name__ == '__main__':
-    app.run(port=5000)
+    app.run(host='0.0.0.0', port=port)
