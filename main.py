@@ -29,7 +29,7 @@ def send_message():
     return jsonify({"response": result})
 
 @app.route('/send-message-gui-portfolio', methods=['POST'])
-def send_message():
+def send_message_portfolio():
     data = request.get_json()
     message = data.get('message')
 
