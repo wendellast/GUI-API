@@ -52,7 +52,7 @@ def send_message_commitia():
     client = Client("wendellast/CommitIa")
     result = client.predict(
         message=message,
-        max_tokens=30,
+        max_tokens=50,
         temperature=0.7,
         top_p=0.95,
         api_name="/chat"
